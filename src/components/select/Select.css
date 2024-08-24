@@ -1,0 +1,22 @@
+label {
+  font-size: 1rem;
+  text-transform: capitalize;
+}
+
+.required {
+  color: red;
+}
+
+.select {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 0.2rem;
+  outline: none;
+  color: grey;
+  font-size: 0.9rem;
+  border: 0.1rem solid grey;
+}
+
+select:focus {
+  border: 0.1rem solid black;
+}

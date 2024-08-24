@@ -1,0 +1,27 @@
+label {
+  font-size: 1rem;
+  text-transform: capitalize;
+}
+
+.required {
+  color: red;
+}
+
+.input {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 0.2rem;
+  outline: none;
+  border: 0.1rem solid grey;
+
+
+}
+
+input:focus {
+  border: 0.1rem solid black;
+}
+
+input::placeholder {
+  color: grey;
+  font-size: 0.9rem;
+}
