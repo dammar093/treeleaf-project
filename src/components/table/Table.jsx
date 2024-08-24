@@ -30,60 +30,62 @@ const Table = () => {
       <div className='search'>
         <Input type='search' onChange={handleSearch} placeholder="search..." />
       </div>
-      <table className='table' border={1}>
-        <thead>
-          <tr>
-            <th>S.N.</th>
-            <th>Profile</th>
-            <th>Name</th>
-            <th>Date of birth</th>
-            <th>Email</th>
-            <th>Phone</th>
-            <th colSpan={4}>Address</th>
-            <th>Action</th>
-          </tr>
-          <tr>
-            <th colSpan={6}></th>
-            <th>City</th>
-            <th>District</th>
-            <th>Province</th>
-            <th>Country</th>
+      <div className='table-wrapper'>
+        <table className='table' border={1}>
+          <thead>
+            <tr>
+              <th>S.N.</th>
+              <th>Profile</th>
+              <th>Name</th>
+              <th>Date of birth</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th colSpan={4}>Address</th>
+              <th>Action</th>
+            </tr>
+            <tr>
+              <th colSpan={6}></th>
+              <th>City</th>
+              <th>District</th>
+              <th>Province</th>
+              <th>Country</th>
 
-          </tr>
-        </thead>
-        <tbody className='table-body'>
-          {
-            filterUsers?.map((user, index) => {
-              return (
-                <tr key={user?.id}>
-                  <td>{index + 1}</td>
-                  <td><img className='user-profile' src={user?.profile} alt='profile' /></td>
-                  <td>{user?.name}</td>
-                  <td>{user?.dob}</td>
-                  <td>{user?.email}</td>
-                  <td>{user?.phone}</td>
-                  <td>{user?.city}</td>
-                  <td>{user?.district}</td>
-                  <td>{user?.province}</td>
-                  <td>{user?.country}</td>
-                  <td style={{ display: "flex", gap: "2px", }}>
-                    <Button
-                      onClick={() => {
-                        setShowEdit(true)
-                        setId(user?.id)
-                      }}
-                    >Edit</Button>
-                    <Button style={{ backgroundColor: "red" }}
-                      // remove user from state or table
-                      onClick={() => dispatch(removeUser(user?.id))}
-                    >Delete</Button></td>
-                </tr>
-              )
-            })
-          }
+            </tr>
+          </thead>
+          <tbody className='table-body'>
+            {
+              filterUsers?.map((user, index) => {
+                return (
+                  <tr key={user?.id}>
+                    <td>{index + 1}</td>
+                    <td><img className='user-profile' src={user?.profile} alt='profile' /></td>
+                    <td>{user?.name}</td>
+                    <td>{user?.dob}</td>
+                    <td>{user?.email}</td>
+                    <td>{user?.phone}</td>
+                    <td>{user?.city}</td>
+                    <td>{user?.district}</td>
+                    <td>{user?.province}</td>
+                    <td>{user?.country}</td>
+                    <td style={{ display: "flex", gap: "2px", }}>
+                      <Button
+                        onClick={() => {
+                          setShowEdit(true)
+                          setId(user?.id)
+                        }}
+                      >Edit</Button>
+                      <Button style={{ backgroundColor: "red" }}
+                        // remove user from state or table
+                        onClick={() => dispatch(removeUser(user?.id))}
+                      >Delete</Button></td>
+                  </tr>
+                )
+              })
+            }
 
-        </tbody>
-      </table>
+          </tbody>
+        </table>
+      </div>
       <div className='pagination'>
         {
           Array.from({ length: pageSize }).map((item, index) => {
