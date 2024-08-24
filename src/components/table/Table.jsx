@@ -28,7 +28,7 @@ const Table = () => {
     <div className='table-component'>
       <h2>User Details</h2>
       <div className='search'>
-        <Input type='search' onChange={handleSearch} />
+        <Input type='search' onChange={handleSearch} placeholder="search..." />
       </div>
       <table className='table' border={1}>
         <thead>

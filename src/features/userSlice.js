@@ -77,7 +77,7 @@ const initialState ={
     {
       id:7,
       name:"Ajay",
-      email:"johndoe@gmail.com",
+      email:"dyams@gmail.com",
       phone:"23872384",
       dob:"2000-05-06",
       city:"Mahendranagar",
@@ -118,8 +118,11 @@ const userSlice = createSlice({
       state.users[index] = action.payload
     },
     searchedUsers:(state,action)=>{
-      let searchTerm = action.payload.toLowerCase()
-      state.filterUsers = state.users.filter(user=>user.name.toLowerCase().includes(searchTerm))
+    let searchTerm = action.payload.toLowerCase();
+    state.filterUsers = state.users.filter(
+        user => user.name.toLowerCase().includes(searchTerm) || user.email.toLowerCase().includes(searchTerm)
+    );
+
       state.total = state.filterUsers.length
     },
     setUserByPage:(state,action)=>{
